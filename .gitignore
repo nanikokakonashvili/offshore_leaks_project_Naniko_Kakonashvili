@@ -4,13 +4,4 @@ node_modules/
 .next/
 out/
 .vercel/
-latex/Research_mathematics.pdf
-latex/frog.pdf
-latex/sidecaps.pdf
-latex/*.aux
-latex/*.bbl
-latex/*.blg
-latex/*.log
-latex/*.out
-latex/*.synctex.gz
-latex/*.toc
+latex/
