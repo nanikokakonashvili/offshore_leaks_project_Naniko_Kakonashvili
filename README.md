@@ -87,12 +87,6 @@ matplotlib
 networkx
 scipy
 ```
-
-Install with:
-```bash
-pip install pandas numpy matplotlib networkx scipy
-```
-
 ---
 
 ## Outputs
