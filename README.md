@@ -11,6 +11,10 @@
 
 ```
 project_root/
+├── app/
+│   ├── layout.jsx                             ← Next.js page metadata and shell
+│   ├── page.jsx                               ← React public demo site
+│   └── globals.css                            ← website styling
 ├── code/
 │   └── 01_analysis_and_visualizations.ipynb   ← main analysis notebook
 ├── data/
@@ -22,11 +26,15 @@ project_root/
 │           ├── relationships.csv
 │           ├── nodes-addresses.csv
 │           └── nodes-others.csv
-└── output/
-    ├── viz1_jurisdiction_profile.png
-    ├── viz2_georgian_timeline.png
-    ├── viz3_similarity_networks.png
-    └── viz4_radar_chart.png
+├── output/
+│   ├── viz1_jurisdiction_profile.png
+│   ├── viz2_georgian_timeline.png
+│   ├── viz3_similarity_networks.png
+│   └── viz4_radar_chart.png
+├── public/
+│   └── assets/                                ← figure assets served by Next/Vercel
+├── package.json                               ← Next.js scripts and dependencies
+└── vercel.json                                ← Vercel build settings
 ```
 
 **Raw data is not tracked in this repo** because the ICIJ files are ~1 GB unzipped. Download and unzip the full database from [offshoreleaks.icij.org/pages/database](https://offshoreleaks.icij.org/pages/database) and place the CSV files in `data/raw/full-oldb.LATEST/`. The notebook auto-detects several common local paths (see below).
@@ -91,7 +99,7 @@ scipy
 
 ## Outputs
 
-All four figures are saved to `output/` as 150 DPI PNGs. They are also embedded in the paper (`kakonashvili_offshore_georgia.tex`).
+All four figures are saved to `output/` as 150 DPI PNGs. They are also embedded in the paper (`latex/Research_mathematics.tex`).
 
 | File | Description |
 |---|---|
@@ -108,3 +116,20 @@ All four figures are saved to `output/` as 150 DPI PNGs. They are also embedded 
 - Cosine similarity confirms Georgia is structurally closer to **Russia (0.661) than to the EU average (0.447)**, with the strongest resemblance to Belarus (0.932).
 - Georgian entity incorporations peak in **2014** (16 opaque entities) alongside Georgian Dream's political consolidation; post-2016 decline is consistent with a Panama Papers chilling effect.
 - Georgia's **intermediary HHI (0.068)** is the highest in the comparison set — more than twice Russia's (0.024) — indicating offshore structuring concentrated in a narrow set of wealth managers.
+
+---
+
+## Website
+
+The public demo site is a Next.js app in [`app/page.jsx`](app/page.jsx). It tells the project story from question to data, method, results, and takeaway, using the figure assets in [`public/assets/`](public/assets/).
+
+To preview locally:
+
+```bash
+npm install
+npm run dev
+```
+
+Then open `http://localhost:3000`.
+
+To deploy on Vercel, import this GitHub repository as a Next.js project. Vercel should detect the framework automatically; the included [`vercel.json`](vercel.json) uses `npm install` and `npm run build`.
