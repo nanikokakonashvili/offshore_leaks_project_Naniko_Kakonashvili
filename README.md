@@ -50,7 +50,7 @@ Expected files:
 
 # Code directory
 
-### `code/01_data_inventory.ipynb`
+### `code/01_analysis_and_visualizations.ipynb`
 Loads the five ICIJ CSV files and performs the core data pipeline:
 filters `nodes-officers.csv` for Georgian-coded actors (`country_codes` 
 containing `GEO`), joins through `relationships.csv` to linked offshore 
